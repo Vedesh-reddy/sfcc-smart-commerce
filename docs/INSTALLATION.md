@@ -55,7 +55,7 @@ Site Import & Export.
 | --- | --- |
 | `meta/custom-objecttype-definitions.xml` | `SmartPriceHistory`, `SmartProductAlert` (90-day retention), `SmartPriceLock` (90-day retention) |
 | `meta/system-objecttype-extensions.xml` | **Smart Commerce** site preferences; Order pickup-code attributes; SFRA in-store pickup attributes (`ProductLineItem.fromStoreId`, `Shipment.fromStoreId`, `Shipment.shipmentType`, `Store.inventoryListId`, `ShippingMethod.storePickupEnabled`) |
-| `jobs.xml` | `SmartCommerce-PriceHistory` (daily 01:00 UTC), `SmartCommerce-Hourly` |
+| `jobs.xml` | `RecordPriceHistory` step of `SmartCommerce-Job` (daily 01:00 UTC), `SmartCommerce-Job` |
 
 The pickup attributes use the same IDs as SFRA's in-store pickup plugin, which base basket
 validation already reads; importing them again is harmless.
@@ -89,7 +89,7 @@ The sender of all emails is the existing `customerServiceEmail` preference.
 
 ## 7. Jobs
 
-Administration → Operations → Jobs: run `SmartCommerce-PriceHistory` once to record today's
+Administration → Operations → Jobs: run `RecordPriceHistory` step of `SmartCommerce-Job` once to record today's
 prices, and check that both jobs are scheduled.
 
 ## 8. Email-code login
