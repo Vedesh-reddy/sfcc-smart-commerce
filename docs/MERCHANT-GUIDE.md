@@ -11,8 +11,8 @@ See the [installation guide](INSTALLATION.md#5-site-preferences) for defaults.
 
 | Job | Steps | Schedule | What to check |
 | --- | --- | --- | --- |
-| `SmartCommerce-PriceHistory` | RecordPriceHistory, SendProductAlerts | Daily 01:00 UTC | Log line `Price history recorded: N changed, M failed` |
-| `SmartCommerce-Hourly` | SendProductAlerts, ExpirePriceLocks | Hourly | `Product alerts: N sent, N expired, N failed`, `Price locks expired: N` |
+| `RecordPriceHistory` step of `SmartCommerce-Job` | RecordPriceHistory, SendProductAlerts | Daily 01:00 UTC | Log line `Price history recorded: N changed, M failed` |
+| `SmartCommerce-Job` | SendProductAlerts, ExpirePriceLocks | Hourly | `Product alerts: N sent, N expired, N failed`, `Price locks expired: N` |
 
 Logs are written to `custom-smart-commerce-*.log` (Administration → Site Development → Development Setup → Log Files).
 The first price-history run records every product; later runs record only changes.
